@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MD Note</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">📝 MD Note</div>
+      <div class="actions">
+        <button id="newNoteBtn" title="新規ノート (Ctrl+N)">新規</button>
+        <button id="saveNoteBtn" title="保存 (Ctrl+S)">保存</button>
+        <button id="deleteNoteBtn" title="削除 (Del)">削除</button>
+        <button id="exportBtn" title="エクスポート">エクスポート</button>
+        <label class="import-label" title="インポート">
+          インポート
+          <input id="importInput" type="file" accept="application/json" />
+        </label>
+      </div>
+    </header>
+
+    <div class="app-main">
+      <aside class="sidebar">
+        <div class="search">
+          <input id="searchInput" type="text" placeholder="検索 (タイトル/本文)" />
+        </div>
+        <ul id="noteList" class="note-list"></ul>
+      </aside>
+
+      <section class="editor-panel">
+        <div class="title-row">
+          <input id="titleInput" type="text" placeholder="タイトル" />
+          <span id="statusBadge" class="status">保存済み</span>
+        </div>
+        <div class="split">
+          <div class="pane editor">
+            <textarea id="editor" placeholder="# 見出し\n\nここにMarkdownでノートを書きます…"></textarea>
+          </div>
+          <div class="pane preview" id="preview"></div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="app-footer">
+      <span>Markdownプレビューは簡易実装です。XSS対策としてHTMLはエスケープされます。</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
